@@ -1,0 +1,17 @@
+langchain
+pdfplumber
+pandas
+tiktoken
+python-dotenv
+langchain-community
+tqdm
+sentence-transformers
+adsk-py
+google-api-python-client
+wrapt
+opt_einsum
+gast
+astunparse
+termcolor
+flatbuffers
+psycopg2
