@@ -143,6 +143,7 @@ def callback():
     try:
         handler.handle(body, signature)
     except Exception as e:
+        print(e)
         logger.error(e)
         abort(400)
 
