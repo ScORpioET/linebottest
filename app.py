@@ -62,16 +62,16 @@ def configure_retriever():
     #             os.makedirs(os.path.dirname(obj.key))
     #         logger.info(f"download file: {obj.key}")
     #         s3_bucket.download_file(obj.key, obj.key)
-
-    vectordb = Chroma(
-        persist_directory=str(PathHelper.db_dir / const.CHROMA_DB),
-        embedding_function=embeddings,
-    )
-    # vectordb = PGVector(
-    #     collection_name=const.COLLECTION_NAME,
-    #     connection_string=utils.get_connection_string(),
+ 
+    # vectordb = Chroma(
+    #     persist_directory=str(PathHelper.db_dir / const.CHROMA_DB),
     #     embedding_function=embeddings,
     # )
+    vectordb = PGVector(
+        collection_name=const.COLLECTION_NAME,
+        connection_string=utils.get_connection_string(),
+        embedding_function=embeddings,
+    )
     
     retriever = vectordb.as_retriever(
         search_type="mmr", search_kwargs={"k": const.N_DOCS}
