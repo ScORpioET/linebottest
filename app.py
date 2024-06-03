@@ -195,15 +195,15 @@ def handle_message(event):
             answer = answer_translated["TranslatedText"]
 
     # select most related docs and get video id
-    ref_video_template = ""
-    for i in range(min(const.N_SOURCE_DOCS, len(response["source_documents"]))):
-        most_related_doc = response["source_documents"][i]
-        most_related_video_id = most_related_doc.metadata["video_id"]
-        url = f"https://www.youtube.com/watch?v={most_related_video_id}"
-        ref_video_template = f"{ref_video_template}\n{url}"
+    # ref_video_template = ""
+    # for i in range(min(const.N_SOURCE_DOCS, len(response["source_documents"]))):
+    #     most_related_doc = response["source_documents"][i]
+    #     most_related_video_id = most_related_doc.metadata["video_id"]
+    #     url = f"https://www.youtube.com/watch?v={most_related_video_id}"
+    #     ref_video_template = f"{ref_video_template}\n{url}"
 
     # add reference video
-    answer = f"{answer}\n\nSource: {ref_video_template}"
+    answer = f"{answer}"
 
     # reply message
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=answer))
