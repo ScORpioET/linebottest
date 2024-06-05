@@ -18,6 +18,7 @@ CHROMA_DB = "chroma"
 N_DOCS = 5
 N_SOURCE_DOCS = 2
 
+
 # message
 INIT_MESSAGE = "我可以怎麼幫你呢？"
 TEST_RESPONSES = ["測試一", "測試二", "測試三", "測試四", "測試五"]

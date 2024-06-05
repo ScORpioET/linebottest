@@ -2,6 +2,7 @@ import os
 import sys
 from distutils.util import strtobool
 
+
 import boto3
 from dotenv import load_dotenv
 from flask import Flask, abort, request
@@ -62,7 +63,7 @@ def configure_retriever():
     #             os.makedirs(os.path.dirname(obj.key))
     #         logger.info(f"download file: {obj.key}")
     #         s3_bucket.download_file(obj.key, obj.key)
- 
+
     # vectordb = Chroma(
     #     persist_directory=str(PathHelper.db_dir / const.CHROMA_DB),
     #     embedding_function=embeddings,
@@ -129,7 +130,7 @@ qa_chain = ConversationalRetrievalChain.from_llm(
     retriever=retriever,
     memory=memory,
     verbose=True,
-    return_source_documents=True,
+    # return_source_documents=True,
 )
 
 
@@ -143,7 +144,6 @@ def callback():
     try:
         handler.handle(body, signature)
     except Exception as e:
-        print(e)
         logger.error(e)
         abort(400)
 

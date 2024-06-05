@@ -4,6 +4,7 @@ https://github.com/langchain-ai/streamlit-agent/blob/main/streamlit_agent/chat_w
 """
 
 import os
+
 import streamlit as st
 from dotenv import load_dotenv
 from langchain.callbacks.base import BaseCallbackHandler
@@ -133,6 +134,7 @@ for msg in msgs.messages:
 
 if user_query := st.chat_input(placeholder="Ask me anything!"):
     st.chat_message("user").write(user_query)
+
 
     with st.chat_message("assistant"):
         retrieval_handler = PrintRetrievalHandler(st.container())
